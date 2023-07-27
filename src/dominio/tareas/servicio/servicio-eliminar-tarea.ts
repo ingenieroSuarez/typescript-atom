@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { RepositorioTareas } from '../puerto/repositorio/repositorio-tareas';
 
 @Injectable()
 export class ServicioEliminarTarea{
-    async ejecutar(){
+    constructor(
+        private readonly _repositorioTareas: RepositorioTareas
+    ){ }
+    async ejecutar(idTarea: string){
 
-        return "ToDO"
+        return await this._repositorioTareas.eliminar(idTarea)
     }
 
 }
