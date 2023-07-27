@@ -1,4 +1,4 @@
-import { Controller,  Post, Body, Put, Get, Delete } from '@nestjs/common';
+import { Controller,  Post, Body, Put, Get, Delete, Param } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ComandoRegistrarTarea } from 'src/aplicacion/tareas/comando/registrar-tarea.comando';
 
@@ -13,14 +13,14 @@ export class TareasControlador {
     }
     @Post('')
     async registrarTarea(@Body() tarea: ComandoRegistrarTarea) {
-      return tarea
+      return tarea;
     }
-    @Put('')
-    async actualizarTarea( ) {
-      return "ToDO"
+    @Put(':idTarea')
+    async actualizarTarea(@Param('idTarea') idTarea: string ) {
+      return idTarea;
     }
-    @Delete('')
-    async eliminarTarea( ) {
-      return "ToDO"
+    @Delete(':idTarea')
+    async eliminarTarea(@Param('idTarea') idTarea: string ) {
+        return idTarea;
     }
 }
